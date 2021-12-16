@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;  
-
+use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 class Task extends Controller
 {
     public function index()
@@ -33,4 +33,26 @@ class Task extends Controller
         $post->save();
         return redirect('task')->with('status', 'Data Inserted Successfully !! ');
     }
+    public function edit($gets){
+        return view('update',["gets"=>$gets]);
+    }
+    public function delete($getss){
+        return view('delete',["getss"=>$getss]);
+    }
+    public function store1(Request $requests)
+    {
+        $posts = new Post;
+        $posts=Post::find($requests->names);
+        $save=$requests->changes;
+        $posts->$save=$requests->new;
+        $posts->save();
+        return redirect('reads');
+    }
+    public function store2(Request $requestd)
+    {
+        $post=Post::where("id",$requestd->names);
+        $post->delete();
+        return redirect('reads');
+    }
+
 }

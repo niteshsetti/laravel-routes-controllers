@@ -7,7 +7,7 @@ use App\Http\Controllers\firstcontroller;
 use App\Http\Controllers\secondcontroller;
 use App\Http\Controllers\fetchdata;
 use App\Http\Controllers\Task;
-use App\Models\Post;  
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -93,17 +93,17 @@ Route::get('/update1',function(){
     $posts->Stream='ECE';
     $posts->save();
 });
-Route::get('/create',function(){  
-    Post::create(['Name'=>'Harshita','Redgno'=>'18K61A05F4','Stream'=>'IT']);  
+Route::get('/create',function(){
+    Post::create(['Name'=>'Harshita','Redgno'=>'18K61A05F4','Stream'=>'IT']);
 });
-Route::get('/update2',function(){  
-    Post::where('Id',8)->update(['Name'=>'Charu']);  
+Route::get('/update2',function(){
+    Post::where('Id',8)->update(['Name'=>'Charu']);
 });
-Route::get('/delete2',function(){  
+Route::get('/delete2',function(){
     $post=Post::where("Id",8);
-    $post->delete();  
-}); 
-Route::get('/truncate',function(){  
+    $post->delete();
+});
+Route::get('/truncate',function(){
     Post::truncate();
 });
 Route::get('/form',function(){
@@ -111,3 +111,7 @@ Route::get('/form',function(){
 });
 Route::get('task', [Task::class, 'index']);
 Route::post('store-form', [Task::class, 'store']);
+Route::get('update/{id}',[Task::class,'edit']);
+Route::get('delete/{ids}',[Task::class,'delete']);
+Route::post('store-forms', [Task::class, 'store1']);
+Route::post('store-formss', [Task::class, 'store2']);

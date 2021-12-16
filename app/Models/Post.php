@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $table='countries';
-    protected $fillable=  
-    [ 
+    protected $fillable=
+    [
     'name',
     'email',
     'languages',
@@ -20,6 +20,6 @@ class Post extends Model
     'state',
     'city',
     'image'
-    ];  
+    ];
 
 }
