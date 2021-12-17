@@ -13,7 +13,7 @@ class Countries extends Migration
      */
     public function up()
     {
-        Schema::create('countries',function(Blueprint $table){
+        Schema::create('posts',function(Blueprint $table){
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
@@ -26,6 +26,7 @@ class Countries extends Migration
             $table->string('city');
             $table->string('image');
             $table->timestamps();
+            $table->integer('user_id')->unsigned();
 
 
         });
@@ -38,6 +39,6 @@ class Countries extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('countries');  
+        Schema::dropIfExists('posts');
     }
 }

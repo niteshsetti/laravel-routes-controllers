@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PostsController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\secondcontroller;
 use App\Http\Controllers\fetchdata;
 use App\Http\Controllers\Task;
 use App\Models\Post;
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -115,3 +117,6 @@ Route::get('update/{id}',[Task::class,'edit']);
 Route::get('delete/{ids}',[Task::class,'delete']);
 Route::post('store-forms', [Task::class, 'store1']);
 Route::post('store-formss', [Task::class, 'store2']);
+Route::get('hasone', [EmployeeController::class, 'salary']);
+Route::get('hasone/data', [EmployeeController::class, 'index']);
+
