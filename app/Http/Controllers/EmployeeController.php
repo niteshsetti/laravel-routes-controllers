@@ -23,12 +23,8 @@ class EmployeeController extends Controller
     public function index()
     {
         $employee = Employee::find(1);
-
-       // get employee data from Salary model
        $employee = Salary::find(1)->employee;
        echo $employee;
-
-       // get Salary number from employee model
        $salary = employee::find(1)->salary;
        echo $salary;
        $salarys = employee::find(1)->salar;
