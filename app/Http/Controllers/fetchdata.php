@@ -8,6 +8,6 @@ use Illuminate\Support\Facades\DB;
 class fetchdata extends Controller
 {
      public function fetch_data(){
-         return DB::select('select *from students');
+         return DB::select('select *from countrie');
      }
 }

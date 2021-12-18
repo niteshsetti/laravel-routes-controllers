@@ -23,36 +23,53 @@ class Task extends Controller
         $post->country = $request->country;
         $post->state = $request->state;
         $post->city = $request->city;
+        $post->image = $request->image;
+
         if($request->hasfile('image')){
-            $file=$request->file('image');
-            $extension=$file->getClientOriginalExtension();
-            $filename=time().".".$extension;
-            $file->move('uploads/images/',$filename);
-            $post->image=$filename;
-        }
+             $file=$request->file('image');
+             $extension=$file->getClientOriginalExtension();
+             $filename=time().".".$extension;
+             $file->move('uploads/images/',$filename);
+             $post->image=$filename;
+         }
         $post->save();
-        return redirect('task')->with('status', 'Data Inserted Successfully !! ');
+        return redirect('form')->with('status','Data inserted Successfully');
+
     }
-    public function edit($gets){
-        return view('update',["gets"=>$gets]);
+    public function store2($getss){
+       DB::delete('delete from countrie where Id=?',[$getss]);
+       echo "Deleted Successfully";
+       return redirect('reads')->with('status','Data Deleted Successfully');
+
     }
-    public function delete($getss){
-        return view('delete',["getss"=>$getss]);
+    public function edit($id){
+        $users = DB::select('select * from countrie where id = ?',[$id]);
+        return view('update',['users'=>$users]);
     }
-    public function store1(Request $requests)
+    public function store1(Request $request,$id)
     {
-        $posts = new Post;
-        $posts=Post::find($requests->names);
-        $save=$requests->changes;
-        $posts->$save=$requests->new;
-        $posts->save();
-        return redirect('reads');
-    }
-    public function store2(Request $requestd)
-    {
-        $post=Post::where("id",$requestd->names);
-        $post->delete();
-        return redirect('reads');
+        $name = $request->name;
+        $email = $request->email;
+        $languages = $request->languages;
+        $gender = $request->gen;
+        $phone = $request->phone;
+        $description = $request->subject;
+        $country = $request->country;
+        $state = $request->state;
+        $city = $request->city;
+        //$image = $request->image;
+        DB::update('update countrie set name = ?,email=?,languages=?,gender=?,phone=?, description=?,country=?,state=?,city=? where id = ?',[$name,
+        $email,
+        $languages,
+        $gender,
+        $phone,
+        $description,
+        $country,
+        $state,
+        $city,
+        $id]);
+        echo "Data Updated";
+        return redirect('reads')->with('status','Data Updated Successfully');
     }
 
 }

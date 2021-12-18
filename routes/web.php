@@ -33,7 +33,7 @@ Route::get('/default/{default?}',function($default="Ram"){
     return view("default",["default"=>$default]);
 });
 Route::get('/come/{id}', [PostsController::class, 'setId']);
-Route::get('students',[fetchdata::class,'fetch_data']);
+Route::get('/students',[fetchdata::class,'fetch_data']);
 Route::get("/insert",function(){
      $insert=DB::insert('insert into students(Name,Redgno,Stream) values(?,?,?)',['KasiKasi','18K61A05H3','CSE']);
      if($insert==1){
@@ -112,11 +112,13 @@ Route::get('/form',function(){
   return view("task");
 });
 Route::get('task', [Task::class, 'index']);
-Route::post('store-form', [Task::class, 'store']);
+Route::post('/form', [Task::class, 'store']);
+Route::post('update/{id}',[Task::class,'store1']);
 Route::get('update/{id}',[Task::class,'edit']);
-Route::get('delete/{ids}',[Task::class,'delete']);
-Route::post('store-forms', [Task::class, 'store1']);
-Route::post('store-formss', [Task::class, 'store2']);
+Route::get('delete/{ids}',[Task::class,'store2']);
 Route::get('hasone', [EmployeeController::class, 'salary']);
 Route::get('hasone/data', [EmployeeController::class, 'index']);
+Route::get("/pages",function(){
+  return view("page");
+});
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Posts extends Migration
+class Countrie extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Posts extends Migration
      */
     public function up()
     {
-        Schema::create('posts',function(Blueprint $table){
+        Schema::create('countrie',function(Blueprint $table){
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
@@ -26,7 +26,6 @@ class Posts extends Migration
             $table->string('city');
             $table->string('image');
             $table->timestamps();
-            $table->integer('user_id')->unsigned();
 
 
         });
@@ -39,6 +38,6 @@ class Posts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('countrie');
     }
 }

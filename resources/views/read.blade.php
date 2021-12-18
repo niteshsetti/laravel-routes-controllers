@@ -33,8 +33,8 @@ foreach($students as $student){
 <td>{{ $student->state}}</td>
 <td>{{ $student->city}}</td>
 <td><img src="{{ asset('uploads/images/'.$student->image) }}" width="70"></td>
-<td><a  href="{{url('update/'.$student->id)}}">Update</a></td>
-<td><a  href="{{url('delete/'.$student->id)}}">Delete</a></td>
+<td><a  href="update/{{$student->id}}">Update</a></td>
+<td><a  href="delete/{{$student->id}}">Delete</a></td>
 </tr>
 <?php
 }

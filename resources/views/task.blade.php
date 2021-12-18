@@ -13,7 +13,7 @@
         {{ session('status') }}
 </div>
 <div class="container">
-  <form name="task"  method="post" action="{{url('store-form')}}" enctype="multipart/form-data">
+  <form name="task"  method="post" action="/form" enctype="multipart/form-data">
   @csrf
   <div class="row">
     <div class="fn">
