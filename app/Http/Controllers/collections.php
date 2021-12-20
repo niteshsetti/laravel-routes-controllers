@@ -52,7 +52,16 @@ class collections extends Controller
             ['account_id' => 1, 'product' => 'Desk'],
             ['account_id' => 2, 'product' => 'Chair'],
         ]);
-        echo $co->implode('product', ', ');
+        echo $co->implode('product', ', ')."</br>";
+        echo $collections->isNotEmpty()."</br>";
+        $multiplied = $collection->map(function ($item) {
+            return $item * 2;
+        });
+        echo $multiplied."</br>";
+        echo $collection->max()."</br>";
+        echo $collection->median()."</br>";
+        echo $collection->mode()."</br>";
+
 
 
     }
