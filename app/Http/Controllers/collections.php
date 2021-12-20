@@ -60,7 +60,6 @@ class collections extends Controller
         echo $multiplied."</br>";
         echo $collection->max()."</br>";
         echo $collection->median()."</br>";
-        echo $collection->mode()."</br>";
 
 
 
