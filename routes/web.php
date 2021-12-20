@@ -7,6 +7,7 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\firstcontroller;
 use App\Http\Controllers\secondcontroller;
 use App\Http\Controllers\fetchdata;
+use App\Http\Controllers\collections;
 use App\Http\Controllers\Task;
 use App\Models\Post;
 use App\Models\User;
@@ -121,4 +122,6 @@ Route::get('hasone/data', [EmployeeController::class, 'index']);
 Route::get("/pages",function(){
   return view("page");
 });
+Route::get("/collections",[collections::class,'collections']);
+
 
