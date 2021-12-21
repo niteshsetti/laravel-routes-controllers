@@ -1,0 +1,33 @@
+#example {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #example td, #example th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #example tr:nth-child(even){background-color: #f2f2f2;}
+
+  #example tr:hover {background-color: #ddd;}
+
+  #example th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+  #example_info{
+      margin-left: 100px;
+  }
+  #example_length > label{
+    margin-left: 100px;
+  }
+  #example_filter > label{
+
+    position: absolute;
+    margin-left:-20em;
+  }
